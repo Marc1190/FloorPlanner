@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.toolbar {
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.toolbar button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.toolbar button:hover {
+    background: #f8f8f8;
+}
+
+.toolbar button.active {
+    background: #e0e0e0;
+    border-color: #999;
+}
+
+.separator {
+    width: 1px;
+    height: 24px;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+.canvas-container {
+    flex: 1;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    background: #fff;
+}
+
+#planCanvas {
+    position: absolute;
+    cursor: crosshair;
+}
+
+/* Dialog styles */
+.dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog.visible {
+    display: flex;
+}
+
+.dialog-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dialog-buttons button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#saveFurniture {
+    background: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+#saveFurniture:hover {
+    background: #45a049;
+}
+
+#cancelFurniture {
+    background: white;
+}
+
+#cancelFurniture:hover {
+    background: #f8f8f8;
+}
+
+/* Make inputs more visible */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+}
