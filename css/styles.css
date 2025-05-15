@@ -234,6 +234,28 @@ select:focus {
     cursor: default; /* Remove crosshair cursor on touch devices */
 }
 
+/* Touch mode toggle button styling */
+#touchModeToggle {
+    position: relative;
+}
+
+#touchModeToggle.active {
+    background: #4CAF50; /* Green background when active */
+    color: white;
+    border-color: #2e7d32;
+}
+
+#touchModeToggle.active::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #7fff7f;
+    top: 5px;
+    right: 5px;
+}
+
 /* Prevent pull-to-refresh and other browser gestures */
 .canvas-container {
     touch-action: none;

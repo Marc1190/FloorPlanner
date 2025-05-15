@@ -37,6 +37,10 @@ class FloorPlanner {
         if (isMobile) {
             // Auto-enable touch mode on mobile devices
             this.touchModeEnabled = true;
+            this.touchHitAreaSize = 20;
+            
+            // Log detection for debugging
+            console.log("Mobile device detected. Touch mode enabled automatically.");
         }
     }
 
@@ -521,6 +525,16 @@ class FloorPlanner {
                 touchModeButton.classList.remove('active');
             }
         }
+        
+        // Update canvas class based on touch mode
+        if (this.touchModeEnabled) {
+            this.canvas.classList.add('touch-mode');
+        } else {
+            this.canvas.classList.remove('touch-mode');
+        }
+        
+        // Log the current state for debugging
+        console.log(`Touch mode ${this.touchModeEnabled ? 'enabled' : 'disabled'}, hit area size: ${this.touchHitAreaSize}px`);
     }
     
     // Use touch hit area size in erase operations
