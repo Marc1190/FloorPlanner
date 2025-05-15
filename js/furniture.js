@@ -95,12 +95,12 @@ class Furniture {
         });
     }
 
-    containsPoint(x, y) {
+    containsPoint(x, y, padding = 0) {
         const corners = this.getCorners();
-        const x1 = Math.min(corners[0].x, corners[2].x);
-        const x2 = Math.max(corners[0].x, corners[2].x);
-        const y1 = Math.min(corners[0].y, corners[2].y);
-        const y2 = Math.max(corners[0].y, corners[2].y);
+        const x1 = Math.min(corners[0].x, corners[2].x) - padding;
+        const x2 = Math.max(corners[0].x, corners[2].x) + padding;
+        const y1 = Math.min(corners[0].y, corners[2].y) - padding;
+        const y2 = Math.max(corners[0].y, corners[2].y) + padding;
         
         return x >= x1 && x <= x2 && y >= y1 && y <= y2;
     }

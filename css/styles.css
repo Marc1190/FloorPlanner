@@ -139,3 +139,103 @@ select:focus {
     border-color: #4CAF50;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
 }
+
+/* Touch indicator */
+.touch-indicator {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(100, 150, 255, 0.3);
+    border: 2px solid rgba(100, 150, 255, 0.7);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.2s ease;
+}
+
+.touch-indicator.rotate {
+    background: rgba(255, 100, 100, 0.3);
+    border-color: rgba(255, 100, 100, 0.7);
+}
+
+.touch-indicator.draw {
+    background: rgba(255, 100, 0, 0.3);
+    border-color: rgba(255, 100, 0, 0.7);
+}
+
+.touch-indicator.erase {
+    background: rgba(100, 255, 100, 0.3);
+    border-color: rgba(100, 255, 100, 0.7);
+}
+
+/* Responsive styles for different screen sizes */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .toolbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .toolbar button {
+        padding: 10px;
+        min-width: 80px;
+        margin: 2px;
+        font-size: 14px;
+    }
+    
+    .separator {
+        display: none;
+    }
+    
+    /* Make furniture dialog fit better on mobile */
+    .dialog-content {
+        width: 90%;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .toolbar button {
+        flex: 1 0 calc(33% - 10px);
+        padding: 15px 5px;
+        font-size: 13px;
+    }
+    
+    /* Larger touch targets */
+    .form-group input,
+    .form-group select {
+        height: 44px;
+        font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+    
+    .dialog-buttons button {
+        padding: 12px 20px;
+        min-width: 100px;
+    }
+    
+    /* Better modal handling */
+    .dialog-content {
+        padding: 15px;
+        width: 95%;
+        max-width: none;
+    }
+}
+
+/* Touch mode adjustments */
+#planCanvas.touch-mode {
+    cursor: default; /* Remove crosshair cursor on touch devices */
+}
+
+/* Prevent pull-to-refresh and other browser gestures */
+.canvas-container {
+    touch-action: none;
+    -ms-touch-action: none;
+}
